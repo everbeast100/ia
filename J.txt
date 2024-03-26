@@ -1,0 +1,552 @@
+  1. Write a java program to find the nCr and nPr.
+
+     import java.util.Scanner;
+     public class A1
+     {
+          public static int fact(int num)
+       {
+         int fact=1;
+         for(int i=1; i<=num; i++)
+           fact = fact*i;
+         return fact;
+       }
+      public static void main(String[] args)
+       {
+         int n, r, ncr, npr;
+         Scanner s = new Scanner(System.in);
+              System.out.print("Enter the Value of n: ");
+         n = s.nextInt();
+         System.out.print("Enter the Value of r: ");
+         r = s.nextInt();
+              if (n<r){
+            System.out.println("n should be greater than or equal to r");
+         }
+         else {
+         npr = (fact(n)) / (fact(n-r));
+         ncr = npr/fact(r);
+         System.out.println("\nnCr = " +ncr);
+         System.out.println("nPr = " +npr);
+         }
+       }
+       }
+
+2. Write a java program to arrange the strings in alphabetical order.
+
+       import java.io.*;
+       class AlphabeticalOrder{
+         public static void main(String[] args)
+         {
+              int n = 4;
+           String names[] = { "Java", "Cpp", "Python", "Javascript" };
+           String temp;
+           for (int i = 0; i < n; i++) {
+              for (int j = i + 1; j < n; j++) {
+                 if (names[i].compareTo(names[j]) > 0) {
+                    temp = names[i];
+                     names[i] = names[j];
+                     names[j] = temp;
+                 }
+              }
+           }
+           System.out.println( "The strings in alphabetical order are: ");
+           for (int i = 0; i < n; i++) {
+              System.out.println(names[i]);
+           }
+         }
+       }
+
+
+       3. Write a Java program to print pyramid pattern.
+
+           public class PyramidPattern
+           {
+               public static void main(String args[])
+              {
+                          int i, j, row = 5;
+                  for (i=0; i<row; i++)
+                          {
+                                   for (j=row-i; j>1; j--)
+                                   {
+                                          System.out.print(" ");
+                                   }
+                          for (j=0; j<=i; j++ )
+                          {
+                                   System.out.print("* ");
+                          }
+                  System.out.println();
+                  }
+             }
+       }
+
+      
+    4. Write a java program to multiply two given matrices.
+
+public class MatrixMultiplication{
+public static void main(String args[])
+{
+      int a[][]={{1,2,-3},{4,5,0},{-7,2,9}};
+      int b[][]={{9,1,7},{6,-5,7},{-3,5,11}};
+        int c[][]=new int[3][3];
+   for(int i=0;i<3;i++){
+      for(int j=0;j<3;j++){
+      c[i][j]=0;
+              for(int k=0;k<3;k++)
+              {
+              c[i][j]+=a[i][k]*b[k][j];
+              }
+      System.out.print(c[i][j]+" ");
+      }
+    System.out.println();
+   }
+}}
+
+ 
+5. Write a java program to demonstrate binary search.
+
+import java.util.Arrays;
+import java.util.Scanner;
+public class BinarySearchDemo {
+  public static void main(String[] args) {
+     Scanner s= new Scanner(System.in);
+     System.out.println("Enter the size of the array:");
+     int size = s.nextInt();
+     int[] array = new int[size];
+     System.out.println("Enter the sorted array elements:");
+     for (int i = 0; i < size; i++) {
+        array[i] = s.nextInt();
+     }
+     System.out.println("Enter the number to search:");
+     int key = s.nextInt();
+     int result = Arrays.binarySearch(array, key);
+     if (result < 0) {
+        System.out.println("Element is not found!");
+     } else {
+        System.out.println("Element is found at index: " + result);
+
+        }
+    }
+}
+
+6. Write a java program to demonstrate bubble sort.
+
+    import java.util.Scanner;
+    public class BubbleSort {
+      public static void main(String[] args) {
+         Scanner S= new Scanner(System.in);
+         System.out.print("Enter the size of the array: ");
+         int size = S.nextInt();
+         int[] array = new int[size];
+         System.out.println("Enter " + size + " elements:");
+         for (int i = 0; i < size; i++) {
+            array[i] = S.nextInt();
+         }
+         for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+               if (array[j] > array[j + 1]) {
+                  int temp = array[j];
+                  array[j] = array[j + 1];
+                  array[j + 1] = temp;
+               }
+               }
+             }
+             System.out.println("Sorted Array:");
+             for (int element : array) {
+               System.out.print(element + " ");
+             }
+             S.close();
+         }
+     }
+
+
+7. Write a Java program to create a class representing a Circle with
+   attributes radius and methods to calculate area and circumference. Create
+   an object and display the results.
+
+     import java.util.Scanner;
+     class Circle {
+        double radius;
+          public Circle(double radius) {                // Constructor
+          this.radius = radius;      //’this’ refers to the current instance of the class
+        }
+        public double Area() {
+          return Math.PI * Math.pow(radius, 2);
+
+
+                                             }
+            public double Circumference() {
+              return 2 * Math.PI * radius;
+            }
+          }
+          public class CircleEx {
+            public static void main(String[] args) {
+               Scanner s = new Scanner(System.in);
+               System.out.print("Enter the radius of the circle: ");
+               double userRadius = s.nextDouble();
+               Circle myCircle = new Circle(userRadius);
+               System.out.println("\nCircle with radius "
+          +String.format("%.2f",myCircle.radius));
+               System.out.println("Area:                                              "
+          +String.format("%.3f",myCircle.Area()));
+               System.out.println("Circumference: " +String.format("%.3f"
+          ,myCircle.Circumference()));
+               s.close();
+            }
+          }
+
+     
+       8. Write a Java program that demonstrates various type conversions.
+
+    public class TypeCast {
+       public static void main(String[] args) {
+          // Explicit casting from double to int
+          double doubleValue = 15.75;
+          int intValue = (int) doubleValue;
+          System.out.println("1. Explicit casting of "+doubleValue+" from double to
+int: " + intValue);
+
+         int num1 = 5;
+      double num2 = 7.25;
+      double result = num1 + num2;
+      System.out.println("2. Automatic type promotion of "+num1+" + "
++num2+" in expressions: " + result);
+
+       // Converting int to char
+       int asciiValue = 65;
+       char charValue = (char) asciiValue;
+       System.out.println("3. Converting int "+asciiValue+" to char: " +
+charValue);
+
+       // Converting char to int
+       char anotherCharValue = 'B';
+       int anotherAsciiValue = (int) anotherCharValue;
+       System.out.println("4. Converting char "+anotherCharValue+" to int: " +
+anotherAsciiValue);
+
+       // Converting int to long
+       int originalIntValue = 123;
+       long longValue = originalIntValue;
+       System.out.println("5. Converting int "+originalIntValue+" to long: " +
+longValue);
+
+        // Converting long to float
+        long originalLongValue = 9876543210L;
+        float floatValue = (float) originalLongValue;
+        System.out.println("6. Converting long "+originalLongValue+" to float: " +
+floatValue);
+
+             float originalFloatValue = 3.14f;
+       double doubleFromFloat = originalFloatValue;
+       System.out.println("7. Converting float "+originalFloatValue+" to double: "
++ doubleFromFloat);
+
+              int intValueForImplicit = 42;
+        double doubleValueForImplicit = intValueForImplicit;
+        System.out.println("8. Implicit casting from int "+intValueForImplicit+" to
+double: " + doubleValueForImplicit);
+
+                double valueForStringConversion = 123.456;
+         String stringValue = String.valueOf(valueForStringConversion);
+         System.out.println("9. Converting double "+valueForStringConversion+" to
+String: " + stringValue);
+      }
+   }
+
+
+
+       9. Write a java program to demonstrate parameterized constructor.
+
+       class Perimeter
+       {
+         int length;
+         int breadth;
+
+         Perimeter(int l,int b)
+
+
+                                    {
+     length=l;
+     breadth=b;
+ }
+ void calculatePerimeter()
+ {
+   int per;
+   per=2*(length+breadth);
+   System.out.println("Perimeter: "+per);
+ }
+ void calculateArea()
+ {
+   int area;
+   area=length*breadth;
+   System.out.println("Area: "+area);
+ }
+}
+public class ParaConstructor
+{
+  public static void main(String[] args)
+  {
+    Perimeter p1=new Perimeter(6,8);
+    Perimeter p2=new Perimeter(20,10);
+    Perimeter p3=new Perimeter(10,5);
+    System.out.println("Details of rectangle 01: ");
+    System.out.println("Length: " + p1.length);
+    System.out.println("Breadth: " + p1.breadth);
+    p1.calculatePerimeter();
+    p1.calculateArea();
+    System.out.println();
+    System.out.println("Details of rectangle 02: ");
+    System.out.println("Length: " + p2.length);
+    System.out.println("Breadth: " + p2.breadth);
+    p2.calculatePerimeter();
+    p2.calculateArea();
+    System.out.println();
+    System.out.println("Details of rectangle 03: ");
+    System.out.println("Length: " + p3.length);
+    System.out.println("Breadth: " + p3.breadth);
+    p3.calculatePerimeter();
+    p3.calculateArea();
+  }
+}
+
+
+
+10. Write a java program to implement the various exceptions and
+handling exceptions.
+
+import java.util.*;
+
+public class ExceptionExample {
+  public static void main(String[] args) {
+     Scanner s = new Scanner(System.in);
+
+     try {
+        System.out.println("Enter two numbers to be divided:");
+        int num1 = s.nextInt();
+        int num2 = s.nextInt();
+        if (num2 == 0) {
+           throw new IllegalArgumentException("Division by zero is not
+allowed");
+        }        int result = num1 / num2;
+        System.out.println("Result: " + result);
+     } catch (ArithmeticException e) {
+        System.out.println("Arithmetic Exception occurred: " + e.getMessage());
+     } catch (InputMismatchException e) {
+        System.out.println("InputMismatchException occurred: " +
+e.getMessage());
+     } catch (IllegalArgumentException e) {
+        System.out.println("IllegalArgumentException occurred: " +
+e.getMessage());
+     }
+
+     try {
+        System.out.println("Enter the size of the array:");
+        int size = s.nextInt();
+        if (size <= 0) {
+           throw new IllegalArgumentException("Array size must be a positive
+integer");
+        }
+        int[] array = new int[size];
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+           array[i] = s.nextInt();
+        }
+        System.out.println("Enter an index to get the element from the array:");
+        int index = s.nextInt();
+        if (index < 0 || index >= size) {
+           throw new ArrayIndexOutOfBoundsException("Index is out of
+bounds");
+        }
+        System.out.println("Array element at index " + index + ": " +
+array[index]);
+     } catch (ArrayIndexOutOfBoundsException e) {
+        System.out.println("ArrayIndexOutOfBoundsException occurred: " +
+e.getMessage());
+     } catch (InputMismatchException e) {
+        System.out.println("InputMismatchException occurred: " +
+e.getMessage());
+     } catch (IllegalArgumentException e) {
+        System.out.println("IllegalArgumentException occurred: " +
+e.getMessage());
+     }         finally{
+          System.out.println();
+         System.out.println("Exception handling methods like try.. catch, throw
+and finally are demonstrated.");
+       }
+     s.close();
+  }
+}
+
+
+
+11. Write a java program to implement a simple calculator.
+
+import java.util.*;
+
+public class Calculator {
+  public static void main(String[] args) {
+float[] operands;
+float res = 0;
+int choice, op;
+Scanner s = new Scanner(System.in);
+
+while (true) {
+  System.out.println("1. Addition");
+  System.out.println("2. Subtraction");
+  System.out.println("3. Multiplication");
+  System.out.println("4. Division");
+  System.out.println("5. Exit");
+  System.out.print("Enter Your Choice (1-5): ");
+  choice = s.nextInt();
+
+    switch (choice) {
+      case 1:
+      case 2:
+      case 3:
+         System.out.print("Enter the number of operands: ");
+         op = s.nextInt();
+         operands = new float[op];
+         System.out.print("\nEnter " + op + " Numbers: ");
+         for (int i = 0; i < op; i++) {
+            operands[i] = s.nextFloat();
+         }
+         res = calculate(choice, operands);
+         break;
+      case 4:
+         operands = new float[2]; // Division always uses 2 operands
+         System.out.print("Enter the first operand: ");
+         operands[0] = s.nextFloat();
+         System.out.print("Enter the second operand: ");
+         operands[1] = s.nextFloat();
+         res = calculate(choice, operands);
+         break;
+      case 5:
+         return;
+      default:
+         System.out.println("\nInvalid choice!");
+         break;
+    }
+    System.out.println("\nResult = " + res + "\n");
+}
+
+    }
+
+    public static float calculate(int choice, float[] operands) {
+      float result = 0; // Initialize result with 0
+
+        switch (choice) {
+           case 1: // Addition
+             for (int i = 0; i < operands.length; i++) {
+                result += operands[i];
+             }
+             break;
+           case 2: // Subtraction
+             result = operands[0]; // Initialize result with the first operand
+             for (int i = 1; i < operands.length; i++) {
+                result -= operands[i];
+             }
+             break;
+           case 3: // Multiplication
+             result = 1; // Initialize result with 1 for multiplication
+             for (float operand : operands) {
+                result *= operand;
+             }
+             break;
+           case 4: // Division
+             if (operands[1] != 0) {
+                result = operands[0] / operands[1];
+             } else {
+                System.out.println("Error: Division by zero!");
+                return 0;
+             }
+             break;
+        }
+        return result;
+    }
+}
+
+
+
+12. Write a java program to implement single, hierarchical and
+multilevel inheritance.
+
+// Parent class
+class Person {
+   String name;
+   void setName(String name) {
+      this.name = name;
+   }
+   void display() {
+      System.out.println("Name: " + name);
+   }
+}
+
+class Student extends Person { // Single Inheritance
+   int id;
+   void setid(int id) {
+      this.id = id;
+   }
+   void displayStudent() {
+      System.out.println("Student Class");
+      display(); // Inherited from Person
+      System.out.println("Student ID: " + id);
+      System.out.println("Single Inheritance. Student class is a child of Person
+class");
+   }
+}
+
+class Faculty extends Person {      String sub;
+
+   void setsub(String sub) {
+     this.sub = sub;
+   }
+   void displayFaculty() {
+     System.out.println("Faculty Class");
+     display(); // Inherited from Person
+     System.out.println("Subject: " + sub);
+      System.out.println("Hierarchical Inheritance. Faculty class is also a child
+of Person class");
+   }
+}
+
+class Hod extends Faculty {       
+   String dept;
+   void setdept(String dept) {
+     this.dept = dept;
+   }
+   void displayHod() {
+     System.out.println("Hod Class");
+     displayFaculty();
+     System.out.println("Department: " + dept);
+     System.out.println("Multilevel Inheritance. Hod class is a child of Faculty
+class, which is a child of Person class");
+   }
+}
+
+public class Inheritance {
+  public static void main(String[] args) {
+     // Single Inheritance
+     Student stu = new Student();
+     stu.setName("Thor");
+     stu.setid(12345);
+     stu.displayStudent();
+     System.out.println();
+
+     // Hierarchical Inheritance
+     Faculty fac = new Faculty();
+     fac.setName("Natasha");
+     fac.setsub("OOPs with Java");
+     fac.displayFaculty();
+     System.out.println();
+
+     // Multilevel Inheritance
+
+
+                                
+        Hod h = new Hod();
+        h.setName("Loki");
+        h.setsub("Computer Science");
+        h.setdept("CS Department");
+        h.displayHod();
+    }
+}
+
+
